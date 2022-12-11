@@ -14,6 +14,14 @@ class UserOperator {
     localStorage.setItem(usuario, JSON.stringify(user));
     actualizaInfo();
     log.innerText = "Depósito realizado con éxito";
+
+    const fecha = new Date();
+    console.log(fecha);
+    const nuevoElemento = document.createElement("p");
+    const nuevoTexto = document.createTextNode(`Depósito - Valor: $${valorDeposito.value} - ${fecha.toGMTString()}`);
+    nuevoElemento.appendChild(nuevoTexto);
+    const contenedor = document.querySelector(".historial");
+    contenedor.appendChild(nuevoElemento);
   }
 
   retirar(valorRetirado) {
@@ -25,6 +33,13 @@ class UserOperator {
     localStorage.setItem(usuario, JSON.stringify(user));
     actualizaInfo();
     log.innerText = "Retiro realizado con éxito";
+
+    const fecha = new Date();
+    const nuevoElemento = document.createElement("p");
+    const nuevoTexto = document.createTextNode(`Retiro - Valor: $${valorRetiro.value} - ${fecha.toGMTString()}`);
+    nuevoElemento.appendChild(nuevoTexto);
+    const contenedor = document.querySelector(".historial");
+    contenedor.appendChild(nuevoElemento);
     }
     //actualizar local storage
 
@@ -76,8 +91,9 @@ function mostrarValorRetiro(){
 
 function depositar(){
     log.innerText = "";
-    if(valorDeposito.value){
+    if(valorDeposito.value && Number(valorDeposito.value) !== 0){
         user.depositar(valorDeposito.value);
+
     }else{
         log.innerText = "Debe ingresar un valor a depositar";
     }
@@ -87,7 +103,7 @@ function depositar(){
 
 function retirar(){
     log.innerText = "";
-    if(valorRetiro.value){
+    if(valorRetiro.value && Number(valorRetiro.value) !== 0){
         user.retirar(valorRetiro.value);
     }else{
         log.innerText = "Debe ingresar un valor a retirar";
