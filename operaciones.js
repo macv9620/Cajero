@@ -34,13 +34,25 @@ class UserOperator {
 const printUsuario = document.querySelector("#printUsuario");
 const printSaldo = document.querySelector("#printSaldo");
 const log = document.querySelector("#log");
+const btnDepositar = document.querySelector("#depositar");
+const btnRetirar = document.querySelector("#retirar");
+const contenedorDeposito = document.querySelector("#contenedorDeposito");
+const contenedorRetiro = document.querySelector("#contenedorRetiro");
+const valorRetiro = document.querySelector("#valorRetiro");
+const valorDeposito = document.querySelector("#valorDeposito");
+const btnConfirmarRetiro = document.querySelector("#confirmarRetiro");
+const btnConfirmarDeposito = document.querySelector("#confirmarDeposito");
 
 let usuario = localStorage.getItem("usuarioActual");
 let userPuente = JSON.parse(localStorage.getItem(usuario));
 
 let user = new UserOperator(userPuente);
 
-console.log(user);
+btnDepositar.addEventListener("click", mostrarValorDeposito);
+btnRetirar.addEventListener("click", mostrarValorRetiro);
+
+btnConfirmarDeposito.addEventListener("click", depositar);
+btnConfirmarRetiro.addEventListener("click", retirar);
 
 actualizaInfo();
 
@@ -48,4 +60,38 @@ function actualizaInfo() {
   userPuente = JSON.parse(localStorage.getItem(usuario));
   printUsuario.innerText = `Saludos: ${user.name}`;
   printSaldo.innerText = `Saldo Actual: $${userPuente.saldo}`;
+}
+
+function mostrarValorDeposito(){
+    log.innerText = "";
+    contenedorDeposito.classList.toggle("activar");
+    contenedorRetiro.classList.add("activar");
+};
+
+function mostrarValorRetiro(){
+    log.innerText = "";
+    contenedorRetiro.classList.toggle("activar");
+    contenedorDeposito.classList.add("activar");
+};
+
+function depositar(){
+    log.innerText = "";
+    if(valorDeposito.value){
+        user.depositar(valorDeposito.value);
+    }else{
+        log.innerText = "Debe ingresar un valor a depositar";
+    }
+    valorDeposito.value = "";
+
+}
+
+function retirar(){
+    log.innerText = "";
+    if(valorRetiro.value){
+        user.retirar(valorRetiro.value);
+    }else{
+        log.innerText = "Debe ingresar un valor a retirar";
+    }
+    valorRetiro.value = "";
+
 }

@@ -72,9 +72,44 @@ main {
 .transacciones_botones button:hover {
   background-color: #107888;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  transition: 0.5s;
 }
+
 
 .logOut{
   font-size: 10px;
   color: red;
+}
+
+
+#valorDeposito, #valorRetiro{
+  text-align: center;
+  border: none;
+  height: 30px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: rgb(243, 234, 234);
+  font-size: 13px;
+}
+
+#confirmarDeposito, #confirmarRetiro{
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+#confirmarDeposito:hover{
+  border-radius: 50%;
+  background-color: rgb(197, 188, 188);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#confirmarRetiro:hover{
+  border-radius: 50%;
+  background-color: rgb(197, 188, 188);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.activar{
+  display: none;
 }
