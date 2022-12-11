@@ -17,6 +17,7 @@ function getInfo() {
         if(userPassword === user.password){
             console.log("Contraseña correcta");
             log.innerText = "Iniciando Sesión...";
+            localStorage.setItem("usuarioActual", userId);
             setTimeout(goOperaciones, 4000);
 
         } else{
@@ -34,5 +35,6 @@ function getInfo() {
 }
 
 function goOperaciones(){
-    window.location.replace("./operaciones.html")
+    //window.location.replace("./operaciones.html")
+    window.location.assign("./operaciones.html");
 }

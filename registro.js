@@ -10,12 +10,14 @@ function confirmarRegistro() {
   ) {
     log.innerHTML = "";
     const userId = "ID" + document.querySelector("#id").value;
+
+    
+
     const userPassword = document.querySelector("#password").value;
     const userName = document.querySelector("#name").value;
     console.log(userId, userPassword);
 
     let nuevoUsuario = new User(userId, userPassword, userName);
-    console.log(Object(nuevoUsuario));
 
     localStorage.setItem(userId, JSON.stringify(nuevoUsuario));
 
@@ -35,8 +37,10 @@ class User {
     this.password = password;
     this.saldo = 0;
   }
+
 }
 
 function back(){
     history.back();
 }
+

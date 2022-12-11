@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #107888;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   color: rgb(39, 39, 39);
 }
 
@@ -20,6 +21,7 @@ main {
   padding: 40px;
   padding-bottom: 30px;
   border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .login {
@@ -47,4 +49,41 @@ main {
 #log{
     font-size: 10px;
     color: red;
+}
+
+#iniciarSesion, #registrar {
+  border: none;
+  padding: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #1592a5;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#iniciarSesion:hover {
+  background-color: #107888;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#registrar:hover {
+  background-color: #107888;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.login input{
+  text-align: center;
+  border: none;
+  height: 30px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: rgb(243, 234, 234);
+  font-size: 15px;
+}
+
+.buttons a{
+
+  color: black;
 }
