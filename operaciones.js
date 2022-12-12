@@ -18,7 +18,9 @@ class UserOperator {
     const fecha = new Date();
     console.log(fecha);
     const nuevoElemento = document.createElement("p");
-    const nuevoTexto = document.createTextNode(`Depósito - Valor: $${valorDeposito.value} - ${fecha.toGMTString()}`);
+    const nuevoTexto = document.createTextNode(
+      `Depósito - Valor: $${valorDeposito.value} - ${fecha.toLocaleString()}`
+    );
     nuevoElemento.appendChild(nuevoTexto);
     const contenedor = document.querySelector(".historial");
     contenedor.appendChild(nuevoElemento);
@@ -28,21 +30,22 @@ class UserOperator {
     if (this.saldo - Number(valorRetirado) < 0) {
       console.log("No tienes saldo");
       log.innerText = "No tienes saldo suficiente para retirar esa cantidad";
-    }else{
-    this.saldo -= Number(valorRetirado);
-    localStorage.setItem(usuario, JSON.stringify(user));
-    actualizaInfo();
-    log.innerText = "Retiro realizado con éxito";
+    } else {
+      this.saldo -= Number(valorRetirado);
+      localStorage.setItem(usuario, JSON.stringify(user));
+      actualizaInfo();
+      log.innerText = "Retiro realizado con éxito";
 
-    const fecha = new Date();
-    const nuevoElemento = document.createElement("p");
-    const nuevoTexto = document.createTextNode(`Retiro - Valor: $${valorRetiro.value} - ${fecha.toGMTString()}`);
-    nuevoElemento.appendChild(nuevoTexto);
-    const contenedor = document.querySelector(".historial");
-    contenedor.appendChild(nuevoElemento);
+      const fecha = new Date();
+      const nuevoElemento = document.createElement("p");
+      const nuevoTexto = document.createTextNode(
+        `Retiro - Valor: $${valorRetiro.value} - ${fecha.toLocaleString()}`
+      );
+      nuevoElemento.appendChild(nuevoTexto);
+      const contenedor = document.querySelector(".historial");
+      contenedor.appendChild(nuevoElemento);
     }
     //actualizar local storage
-
   }
 }
 
@@ -77,37 +80,46 @@ function actualizaInfo() {
   printSaldo.innerText = `Saldo Actual: $${userPuente.saldo}`;
 }
 
-function mostrarValorDeposito(){
-    log.innerText = "";
-    contenedorDeposito.classList.toggle("activar");
-    contenedorRetiro.classList.add("activar");
-};
-
-function mostrarValorRetiro(){
-    log.innerText = "";
-    contenedorRetiro.classList.toggle("activar");
-    contenedorDeposito.classList.add("activar");
-};
-
-function depositar(){
-    log.innerText = "";
-    if(valorDeposito.value && Number(valorDeposito.value) !== 0){
-        user.depositar(valorDeposito.value);
-
-    }else{
-        log.innerText = "Debe ingresar un valor a depositar";
-    }
-    valorDeposito.value = "";
-
+function mostrarValorDeposito() {
+  log.innerText = "";
+  contenedorDeposito.classList.toggle("activar");
+  contenedorRetiro.classList.add("activar");
 }
 
-function retirar(){
-    log.innerText = "";
-    if(valorRetiro.value && Number(valorRetiro.value) !== 0){
-        user.retirar(valorRetiro.value);
-    }else{
-        log.innerText = "Debe ingresar un valor a retirar";
-    }
-    valorRetiro.value = "";
+function mostrarValorRetiro() {
+  log.innerText = "";
+  contenedorRetiro.classList.toggle("activar");
+  contenedorDeposito.classList.add("activar");
+}
 
+function depositar() {
+  log.innerText = "";
+  if (valorDeposito.value && Number(valorDeposito.value) !== 0) {
+    const convertirStringNumero = Number(valorDeposito.value);
+
+    if (!convertirStringNumero) {
+      log.innerText = "Debe ingresar un valor numérico";
+    } else {
+      user.depositar(convertirStringNumero);
+    }
+  } else {
+    log.innerText = "Debe ingresar un valor a depositar";
+  }
+  valorDeposito.value = "";
+}
+
+function retirar() {
+  log.innerText = "";
+  if (valorRetiro.value && Number(valorRetiro.value) !== 0) {
+    const convertirStringNumero = Number(valorRetiro.value);
+
+    if (!convertirStringNumero) {
+      log.innerText = "Debe ingresar un valor numérico";
+    } else {
+    user.retirar(valorRetiro.value);
+    }
+  } else {
+    log.innerText = "Debe ingresar un valor a retirar";
+  }
+  valorRetiro.value = "";
 }

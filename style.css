@@ -31,12 +31,20 @@ main {
   gap: 20px;
 }
 
+.login div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .login p:nth-child(1) {
   font-size: 30px;
+  text-align: center;
 }
 
 .login p:nth-child(2) {
   font-size: 12px;
+  text-align: center;
 }
 
 .buttons {
