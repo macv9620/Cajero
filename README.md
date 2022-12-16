@@ -7,10 +7,10 @@ Proyecto "Cajero" para módulo 2 del Master en Codign Devf.
 El proyecto contiene 3 interfaces: Incio de Sesión, Registro y Operaciones.
 
 1 - Inicio de Sesión: esta página contiene la información para iniciar sesión y tiene las siguientes validaciones y funcionalidades:
-  a) No permite iniciar sesión si no se ingresan usuario y contraseña.
-  b) Si se ingresan usuario y contraseña valida si el usuario existe en el localStorage, si no existe indica que se debe generar un registro y si existe valida si la contraseña ingresada es la correcta para proceder con el inicio de sesión.
-  c) Contiene un log que va indicando al usuario lo que está ocurriendo.
-  d) tiene un link "Regístrate" que lleva al usuario a la página de registro en caso de ser un usuario nuevo.
+  a) No permite iniciar sesión si no se ingresan usuario y contraseña.<br />
+  b) Si se ingresan usuario y contraseña valida si el usuario existe en el localStorage, si no existe indica que se debe generar un registro y si existe valida si la contraseña ingresada es la correcta para proceder con el inicio de sesión.<br />
+  c) Contiene un log que va indicando al usuario lo que está ocurriendo.<br />
+  d) tiene un link "Regístrate" que lleva al usuario a la página de registro en caso de ser un usuario nuevo.<br />
   
   
 2 - Registro: esta página permite al usuario generar un registro y tiene las siguientes validaciones y funcionalidades:
